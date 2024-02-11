@@ -1,8 +1,8 @@
 <h1>Sample Data warehouse | Datamart (Data Engineering project)</h1>
 <ul>
  	<li>This repository contains dbt project only</li>
- 	<li>Author: Jan Zednicek - <a href="https://janzednicek.cz/" target="_blank" rel="noopener">https://janzednicek.cz</a> If you find any inconsistencies, please let me know - <a href="mailto:jsem@janzednicek.cz">jsem@janzednicek.cz</a></li>
- 	<li>Feel free to use this code without any limitations for learning (non-commercial use).</li>
+ 	<li>Author: <a href="https://janzednicek.cz"> Jan Zednicek</a> - If you find any inconsistencies, please let me know - <a href="mailto:jsem@janzednicek.cz">jsem@janzednicek.cz</a></li>
+ 	<li>Feel free to use this code without any limitations for learning (non-commercial) use.</li>
 </ul>
 <h2><strong>1 Project description</strong></h2>
 <p>The goal of this project is to create the structure of a data warehouse or a data mart, incorporating staging and increment data layers. We will utilize sample sales data from the AdventureWorks database on SQL Server. Our database structures will be implemented in Snowflake. Extraction from the source system will be conducted using Fivetran, and transformations will be carried out using dbt.</p>
