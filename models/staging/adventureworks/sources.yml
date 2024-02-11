@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: ADVENTUREWORKS
+    schema: SQL_SERVER_SALESLT
+    database: ADVENTUREWORKS
+    tables:
+      - name: ADDRESS
+      - name: CUSTOMER
+      - name: CUSTOMERADDRESS
+      - name: PRODUCT
+      - name: PRODUCTCATEGORY
+      - name: PRODUCTDESCRIPTION
+      - name: PRODUCTMODEL
+      - name: PRODUCTMODELPRODUCTDESCRIPTION
+      - name: SALESORDERDETAIL
+      - name: SALESORDERHEADER 
+      
+  - name: ADVENTUREWORKS_SNAPSHOTS
+    schema: STAGING
+    tables:
+      - name: SNAP_AW_ADDRESS
+      - name: SNAP_AW_CUSTOMER
+      - name: SNAP_AW_CUSTOMERADDRESS
+      - name: SNAP_AW_PRODUCT
+      - name: SNAP_AW_PRODUCTCATEGORY
+      - name: SNAP_AW_PRODUCTDESCRIPTION
+      - name: SNAP_AW_PRODUCTMODEL
+      - name: SNAP_AW_PRODUCTMODELPRODUCTDESCRIPTION
+      - name: SNAP_AW_SALESORDERDETAIL
+      - name: SNAP_AW_SALESORDERHEADER

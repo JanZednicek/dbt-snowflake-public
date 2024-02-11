@@ -1,0 +1,24 @@
+snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: <your account>
+      # User/password auth
+      user: <dev user>
+      password: <dev user password>
+      role: ACCOUNTADMIN
+      database: <dev database>
+      warehouse: <dev warehouse>
+      schema: <dev default schema>
+    
+    prod:
+      type: snowflake
+      account: <your account>
+      # User/password auth
+      user: <prod user>
+      password: <prod user password>
+      role: ACCOUNTADMIN
+      database: <prod database>
+      warehouse: <prod warehouse>
+      schema: <prod default schema>
