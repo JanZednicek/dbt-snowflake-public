@@ -1,7 +1,7 @@
 <h1>Sample Data warehouse | Datamart (Data Engineering project)</h1>
 <ul>
  	<li>This repository contains dbt project only</li>
- 	<li>Author: Jan Zednicek - <a href="https://janzednicek.cz/">https://janzednicek.cz</a>  If you find any inconsistencies, please let me know - <a href="mailto:jsem@janzednicek.cz">jsem@janzednicek.cz</a></li>
+ 	<li>Author: Jan Zednicek - <a href="https://janzednicek.cz/" target="_blank" rel="noopener">https://janzednicek.cz</a> If you find any inconsistencies, please let me know - <a href="mailto:jsem@janzednicek.cz">jsem@janzednicek.cz</a></li>
  	<li>Feel free to use this code without any limitations for learning (non-commercial use).</li>
 </ul>
 <h2><strong>1 Project description</strong></h2>
@@ -39,7 +39,7 @@
 We will transform our data using dbt to the star schema below.
 
 <img src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/d659bfe0-6335-475b-994a-2399e055ea6a" alt="Source Data ER Diagram">
-<strong><u>Naming conventions</u>:</strong>
+<h3><u>Naming conventions - to keep all organized</u>:</h3>
 
 <strong>A) Tables</strong>
 <ul>
@@ -48,7 +48,7 @@ We will transform our data using dbt to the star schema below.
  	<li>D_ - Dimension table</li>
  	<li>F_ - Fact table</li>
 </ul>
-<strong>B) Columns</strong>
+<p><strong>B) Columns</strong></p>
 <ul>
  	<li>SK_TABLE – Surrogate key – primary key</li>
  	<li>SK_TABLE_MASTER – Surrogate key – business key (consistent over all historical versions of the same business key)</li>
@@ -58,12 +58,56 @@ We will transform our data using dbt to the star schema below.
  	<li>NUM_COLUMN – numerical value</li>
  	<li>AMT_COLUMN – amount (money, quantity)</li>
 </ul>
+<p><strong>C) dbt file organization</strong></p>
+<strong>1) snapshot</strong>
+<ul>
+ 	<li>source_system1 (folder)
+<ul>
+ 	<li>source_system1_rawtable1</li>
+ 	<li>source_system1_rawtable2</li>
+</ul>
+</li>
+ 	<li>source_system2 (folder)</li>
+ 	<li>source_system3 (folder)</li>
+</ul>
+<strong>2) model</strong>
+<ul>
+ 	<li>marts (semantic layer)
+<ul>
+ 	<li>sales
+<ul>
+ 	<li>curr_d_table1</li>
+ 	<li>hist_d_table1</li>
+</ul>
+</li>
+ 	<li>marketing</li>
+ 	<li>finance</li>
+</ul>
+</li>
+ 	<li>staging (raw data)
+<ul>
+ 	<li>source_system1 (folder)
+<ul>
+ 	<li>curr_source_system_rawtable1</li>
+ 	<li>curr_source_system_rawtable2</li>
+ 	<li>snap_source_system_rawtable1</li>
+ 	<li>snap_source_system_rawtable2</li>
+</ul>
+</li>
+ 	<li>source_system2 (folder)</li>
+ 	<li>source_system3 (folder)</li>
+</ul>
+</li>
+</ul>
+<img width="350" alt="dbt_file_structure" src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/342f2e35-47b5-43ae-8e56-51c34e750e0a">
+
+
 <h2>4 Steplist</h2>
 <ol>
- 	<li>Create <a href="https://fivetran.com/">Fivetran</a> account (trial and 500 000 rows for free)</li>
- 	<li>Create <a href="https://www.snowflake.com/">Snowflake</a> account (30 days trial)
+ 	<li>Create <a href="https://fivetran.com/" target="_blank">Fivetran</a> account (trial and 500 000 rows for free)</li>
+ 	<li>Create <a href="https://www.snowflake.com/" target="_blank">Snowflake</a> account (30 days trial)
 <ul>
- 	<li>Copy <a href="https://www.sqlservercentral.com/articles/connecting-to-adventureworks-on-azure">AdventureWorks</a> data using Fivetran OR manually to Snowflake database (give it a name “ADVENTUREWORKS”, schema “SQL_SERVER_SALESLT”)</li>
+ 	<li>Copy <a href="https://www.sqlservercentral.com/articles/connecting-to-adventureworks-on-azure" target="_blank">AdventureWorks</a> data using Fivetran OR manually to Snowflake database (give it a name “ADVENTUREWORKS”, schema “SQL_SERVER_SALESLT”)</li>
  	<li>Create database “DBT_DEV” db environment
 <ul>
  	<li>create schema “STAGING”</li>
@@ -82,11 +126,24 @@ We will transform our data using dbt to the star schema below.
 </ul>
 </li>
  	<li>Clone this repository to you local folder</li>
- 	<li>Install <a href="https://www.python.org/">python</a></li>
- 	<li>Open command line/terminal and <a href="https://docs.python.org/3/library/venv.html">create new environment</a></li>
+ 	<li>Install <a href="https://www.python.org/" target="_blank">python</a></li>
+ 	<li>Open command line/terminal and <a href="https://docs.python.org/3/library/venv.html" target="_blank">create new environment</a></li>
  	<li>Activate new environment and install dbt with snowflake adapter using “<strong>pip install dbt-snowflake</strong>”</li>
  	<li>Open you dbt location (step 4) and open file named <strong>yml </strong>and fill your snowflake credentials</li>
  	<li>In command line (terminal), go to your dbt location and run “<strong>dbt debug --target dev</strong>” and then “<strong>dbt debug --target prod</strong>”. It tests you connection.</li>
  	<li>Run “<strong>dbt run –target dev</strong>” if successful you have you data in star schema model</li>
  	<li>Create some cool reports</li>
 </ol>
+
+<h2>5 Code examples</h2>
+<ol>
+<ul>
+  <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/snapshots/adventureworks/snap_aw_product.sql" target="_blank">Snapshot table product - snap_aw_product</a></li>
+  <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/your-path-to-the-file.sql" target="_blank">Semantic layer dimension table product - hist_d_producthierarchy</a></li>
+ </li>
+  <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/models/marts/sales/d_date.sql" target="_blank">Semantic layer dimension table date - D_Date</a></li>
+</ul>
+</ol>
+<h2>6 Power BI report</h2>
+<p>Comming soon</p>
+
