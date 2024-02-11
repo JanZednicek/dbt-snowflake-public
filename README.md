@@ -41,7 +41,42 @@
 We will transform our data using dbt to the star schema below.
 
 <img src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/d659bfe0-6335-475b-994a-2399e055ea6a" alt="Source Data ER Diagram">
-<h3><u>Naming conventions - to keep all organized</u>:</h3>
+
+<h2>4 Steplist</h2>
+<ol>
+ 	<li>Create <a href="https://fivetran.com/" target="_blank">Fivetran</a> account (trial and 500 000 rows for free)</li>
+ 	<li>Create <a href="https://www.snowflake.com/" target="_blank">Snowflake</a> account (30 days trial)
+<ul>
+ 	<li>Copy <a href="https://www.sqlservercentral.com/articles/connecting-to-adventureworks-on-azure" target="_blank">AdventureWorks</a> data using Fivetran OR manually to Snowflake database (give it a name “ADVENTUREWORKS”, schema “SQL_SERVER_SALESLT”)</li>
+ 	<li>Create database “DBT_DEV” db environment
+<ul>
+ 	<li>create schema “STAGING”</li>
+ 	<li>create schema “SALES_MART”,</li>
+ 	<li>create user DBT_DEV_USER and give him a ACCOUNTADMIN role</li>
+</ul>
+</li>
+ 	<li>Create database for “DBT_PROD” db environment
+<ul>
+ 	<li>create schema “STAGING”</li>
+ 	<li>create schema “SALES_MART”</li>
+ 	<li>create user DBT_PROD_USER and give him a ACCOUNTADMIN role</li>
+</ul>
+</li>
+ 	<li>Create warehouse for query processing</li>
+</ul>
+</li>
+ 	<li>Clone this repository to you local folder</li>
+ 	<li>Install <a href="https://www.python.org/" target="_blank">python</a></li>
+ 	<li>Open command line/terminal and <a href="https://docs.python.org/3/library/venv.html" target="_blank">create new environment</a></li>
+ 	<li>Activate new environment and install dbt with snowflake adapter using “<strong>pip install dbt-snowflake</strong>”</li>
+ 	<li>Open you dbt location (step 4) and open file named <strong>profiles.yml </strong>and fill your snowflake credentials</li>
+  <br><img width="1017" alt="image" src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/869aeca0-13e8-4bb3-9390-ad4506594a6f">
+ 	<li>In command line (terminal), go to your dbt location and run “<strong>dbt debug --target dev</strong>” and then “<strong>dbt debug --target prod</strong>”. It tests you connection.</li>
+ 	<li>Run “<strong>dbt run –target dev</strong>” if successful you have you data in star schema model</li>
+ 	<li>Create some cool reports</li>
+</ol>
+
+<h2><u> 5 Naming conventions - to keep all organized</u>:</h2>
 
 <strong>A) Tables</strong>
 <ul>
@@ -103,41 +138,7 @@ We will transform our data using dbt to the star schema below.
 </ul>
 <img width="350" alt="dbt_file_structure" src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/342f2e35-47b5-43ae-8e56-51c34e750e0a">
 
-
-<h2>4 Steplist</h2>
-<ol>
- 	<li>Create <a href="https://fivetran.com/" target="_blank">Fivetran</a> account (trial and 500 000 rows for free)</li>
- 	<li>Create <a href="https://www.snowflake.com/" target="_blank">Snowflake</a> account (30 days trial)
-<ul>
- 	<li>Copy <a href="https://www.sqlservercentral.com/articles/connecting-to-adventureworks-on-azure" target="_blank">AdventureWorks</a> data using Fivetran OR manually to Snowflake database (give it a name “ADVENTUREWORKS”, schema “SQL_SERVER_SALESLT”)</li>
- 	<li>Create database “DBT_DEV” db environment
-<ul>
- 	<li>create schema “STAGING”</li>
- 	<li>create schema “SALES_MART”,</li>
- 	<li>create user DBT_DEV_USER and give him a ACCOUNTADMIN role</li>
-</ul>
-</li>
- 	<li>Create database for “DBT_PROD” db environment
-<ul>
- 	<li>create schema “STAGING”</li>
- 	<li>create schema “SALES_MART”</li>
- 	<li>create user DBT_PROD_USER and give him a ACCOUNTADMIN role</li>
-</ul>
-</li>
- 	<li>Create warehouse for query processing</li>
-</ul>
-</li>
- 	<li>Clone this repository to you local folder</li>
- 	<li>Install <a href="https://www.python.org/" target="_blank">python</a></li>
- 	<li>Open command line/terminal and <a href="https://docs.python.org/3/library/venv.html" target="_blank">create new environment</a></li>
- 	<li>Activate new environment and install dbt with snowflake adapter using “<strong>pip install dbt-snowflake</strong>”</li>
- 	<li>Open you dbt location (step 4) and open file named <strong>yml </strong>and fill your snowflake credentials</li>
- 	<li>In command line (terminal), go to your dbt location and run “<strong>dbt debug --target dev</strong>” and then “<strong>dbt debug --target prod</strong>”. It tests you connection.</li>
- 	<li>Run “<strong>dbt run –target dev</strong>” if successful you have you data in star schema model</li>
- 	<li>Create some cool reports</li>
-</ol>
-
-<h2>5 Code examples</h2>
+<h2>6 Code examples</h2>
 <ol>
 <ul>
   <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/snapshots/adventureworks/snap_aw_product.sql" target="_blank">Snapshot table product - snap_aw_product</a></li>
@@ -146,6 +147,6 @@ We will transform our data using dbt to the star schema below.
   <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/models/marts/sales/d_date.sql" target="_blank">Semantic layer dimension table date - D_Date</a></li>
 </ul>
 </ol>
-<h2>6 Power BI report</h2>
+<h2>7 Power BI report</h2>
 <p>Comming soon</p>
 
