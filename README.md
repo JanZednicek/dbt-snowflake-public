@@ -141,9 +141,9 @@ We will transform our data using dbt to the star schema below.
 <h2>6 Code examples</h2>
 <ol>
 <ul>
-  <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/snapshots/adventureworks/snap_aw_product.sql" target="_blank">Snapshot table product - snap_aw_product</a></li>
-  <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/your-path-to-the-file.sql" target="_blank">Semantic layer dimension table product - hist_d_producthierarchy</a></li>
+   <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/models/marts/sales/curr_d_producthierarchy.sql" target="_blank">Semantic layer dimension table product - hist_d_producthierarchy</a></li>
  </li>
+  <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/snapshots/adventureworks/snap_aw_product.sql" target="_blank">Snapshot table product - snap_aw_product</a></li>
   <li> <a href="https://github.com/JanZednicek/dbt-snowflake-public/blob/main/models/marts/sales/d_date.sql" target="_blank">Semantic layer dimension table date - D_Date</a></li>
 </ul>
 </ol>
