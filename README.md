@@ -16,22 +16,22 @@
 </ul>
 
 <h3>Recap:</h3>
-<ul>
-  <li><strong>Source:</strong> SQL Server - AdventureWorks</li>
-  <li><strong>Extract/Load:</strong> Fivetran</li>
-  <li><strong>Transformations:</strong> dbt (data build tool) – this repository</li>
-  <li><strong>Destination:</strong> Snowflake</li>
+<ul dir="auto">
+ 	<li><strong>Source:</strong> <a href="https://www.sqlservercentral.com/articles/connecting-to-adventureworks-on-azure">SQL Server - AdventureWorks</a></li>
+ 	<li><strong>Extract/Load:</strong> <a href="https://fivetran.com">Fivetran</a></li>
+ 	<li><strong>Transformations:</strong> <a href="https://www.getdbt.com">dbt (data build tool) – this repository</a></li>
+ 	<li><strong>Destination:</strong> <a href="https://www.snowflake.com/en/">Snowflake</a></li>
 </ul>
 <h2>2 Source data (Fictional CRM - AdventureWorks)</h2>
 <p>Below you can find Source data ER diagram. Our data consist of 7 tables. These tables are not heavy (couple of thousands of rows)</p>
 <ul>
- 	<li>Address – list of addresses (shipment/billing)</li>
- 	<li>Customer – list of customers</li>
- 	<li>Product – list of products together with prices and standard costs</li>
- 	<li>Productmodel – a list of product models (each product is associated with a specific model).</li>
- 	<li>Productcategory – list of product categories (self referrenced parent-child structure). Each product is associated with a specific category tree.</li>
- 	<li>Salesorderheader – sales orders ordered by our customers</li>
- 	<li>Salesorderdetail – sales order line items (each order contains items -some products in it)</li>
+ 	<li><strong>Address</strong> – list of addresses (shipment/billing)</li>
+ 	<li><strong>Customer</strong>  – list of customers</li>
+ 	<li><strong>Product</strong>  – list of products together with prices and standard costs</li>
+ 	<li><strong>Productmodel</strong>  – a list of product models (each product is associated with a specific model).</li>
+ 	<li><strong>Productcategory</strong>  – list of product categories (self referrenced parent-child structure). Each product is associated with a specific category tree.</li>
+ 	<li><strong>Salesorderheader</strong>  – sales orders ordered by our customers</li>
+ 	<li><strong>Salesorderdetail</strong>  – sales order line items (each order contains items -some products in it)</li>
 </ul>
 <img src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/a00a8a4f-a0c7-4a4c-a321-91d59a1276b7" alt="Source Data ER Diagram">
 
