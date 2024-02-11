@@ -9,9 +9,11 @@
 
 <h3>We aim to achieve:</h3>
 <ul>
-  <li>A visually appealing data warehouse model, ideally adhering to the star schema, based on the extracted data.</li>
-  <li>Clear and consistent naming conventions.</li>
+  <li>Extract data using fivetran, snapshoting/transformations using dbt</li>
   <li>Implementation of Slowly Changing Dimension Type 2.</li>
+  <li>Create data warehouse model based on star schema</li>
+  <li>Create Orchestration engine using dbt references</li>
+  <li>Using clear and consistent naming conventions.</li>
   <li>Development (dev) and (prod) profiles in dbt for testing purposes.</li>
 </ul>
 
