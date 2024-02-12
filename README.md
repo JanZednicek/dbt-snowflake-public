@@ -71,8 +71,8 @@ We will transform our data using dbt to the star schema below.
  	<li>Activate new environment and install dbt with snowflake adapter using “<strong>pip install dbt-snowflake</strong>”</li>
  	<li>Open your dbt location (step 3) and open file named <strong>profiles.yml </strong>and fill your snowflake credentials</li>
   <br><img width="1017" alt="image" src="https://github.com/JanZednicek/dbt-snowflake-public/assets/39887295/869aeca0-13e8-4bb3-9390-ad4506594a6f">
- 	<li>In command line (terminal), go to your dbt location and run “<strong>dbt debug --target dev</strong>” and then “<strong>dbt debug --target prod</strong>”. It tests you connection.</li>
- 	<li>Run “<strong>dbt run –target dev</strong>” if successful you have you data in star schema model</li>
+ 	<li>In command line (terminal), go to your dbt location and run “<strong>dbt debug --target dev</strong>” and then “<strong>dbt debug --target prod</strong>”. It tests your connection.</li>
+ 	<li>Run “<strong>dbt run –target dev</strong>” if successful you have your data in star schema model</li>
  	<li>Create some cool reports</li>
 </ol>
 
